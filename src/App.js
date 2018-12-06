@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 import './App.css';
 
 const MyContext = React.createContext();
@@ -9,7 +10,6 @@ class MyProvider extends Component {
     age: 22,
     cool: true
   };
-  // growAYearOlder = () => this.setState({ age: this.state.age + 1});
   growAYearOlder = () => this.setState((prevState, props) => {
     return {
       ...prevState,
@@ -42,7 +42,8 @@ const Person = (props) => (
         <React.Fragment>
           <p>Name: {context.state.name}</p>
           <p>Age: {context.state.age}</p>
-          <button onClick={context.growAYearOlder}>Increment Age</button>
+          <button className="btn btn-primary" onClick={context.growAYearOlder}>Increment Age</button>
+          <Button color="ghost-success">Primary</Button>
         </React.Fragment>
       )}
     </MyContext.Consumer>
